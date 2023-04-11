@@ -1,5 +1,5 @@
 body {
-  background-color: crimson;
+  background-color: rgb(253, 67, 0);
 }
 .calculadora {
   width: 200px;
@@ -43,4 +43,5 @@ button {
 .operador {
   color: #007bff;
 }
+
 
