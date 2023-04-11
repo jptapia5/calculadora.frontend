@@ -11,37 +11,39 @@
     <link rel="stylesheet" href="calculadora.css"/>
     <title>Calculadora básica</title>
 </head>
-      <body>
-        <div class="calculadora">
-          <div class="pantalla">
-            <input type="text" id="resultado" disabled>
-          </div>
-          <div class="botones-container">
-            <button class="operador" onclick="agregar('7')">7</button>
-            <button class="operador" onclick="agregar('8')">8</button>
-            <button class="operador" onclick="agregar('9')">9</button>
-            <button class="operador" onclick="operacion('+')">+</button>
-            <br>
-            <button class="operador" onclick="agregar('4')">4</button>
-            <button class="operador" onclick="agregar('5')">5</button>
-            <button class="operador" onclick="agregar('6')">6</button>
-            <button class="operador" onclick="operacion('-')">-</button>
-            <br>
-            <button class="operador" onclick="agregar('1')">1</button>
-            <button class="operador" onclick="agregar('2')">2</button>
-            <button class="operador" onclick="agregar('3')">3</button>
-            <button class="operador" onclick="operacion('*')">*</button>
-            <br>
-            <button class="operador" onclick="agregar('0')">0</button>
-            <button class="operador" onclick="agregar('.')">.</button>
-            <button class="operador" onclick="borrar()">C</button>
-            <button class="operador" onclick="operacion('/')">/</button>
-            <br>
-            <button class="operador" onclick="apunte1(apunte1)">apt</button>
-            <button class="operador" onclick="apuntes2('apuntes2')">geo</button>
-            <br>
-            <button class="igual" onclick="calcular()">=</button>
-          </div>
-        </div>
-      </body>
-    </html>
+<body>
+  <div class="calculadora">
+    <div class="pantalla">
+      <input type="text" id="resultado" disabled>
+    </div>
+    <div class="botones-container">
+      <button class="operador" onclick="agregar('1')">1</button>
+      <button class="operador" onclick="agregar('2')">2</button>
+      <button class="operador" onclick="agregar('3')">3</button>
+      <br>
+      <button class="operador" onclick="agregar('4')">4</button>
+      <button class="operador" onclick="agregar('5')">5</button>
+      <button class="operador" onclick="agregar('6')">6</button>
+      <br>
+      <button class="operador" onclick="agregar('7')">7</button>
+      <button class="operador" onclick="agregar('8')">8</button>
+      <button class="operador" onclick="agregar('9')">9</button>
+      <br>
+      <button class="operador" onclick="operacion('+')">+</button>
+      <button class="operador" onclick="agregar('0')">0</button>
+      <button class="operador" onclick="operacion('-')">-</button>
+      <br>
+      <button class="operador" onclick="operacion('*')">*</button>
+      <br>
+      <button class="operador" onclick="agregar('.')">.</button>
+      <button class="operador" onclick="borrar()">C</button>
+      <button class="operador" onclick="operacion('/')">/</button>
+      <br>
+      <button class="operador" onclick="apunte1(apunte1)">apt</button>
+      <button class="operador" onclick="apuntes2('apuntes2')">geo</button>
+      <br>
+      <button class="igual" onclick="calcular()">=</button>
+    </div>
+  </div>
+</body>
+</html>
