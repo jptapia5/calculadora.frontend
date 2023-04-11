@@ -1,9 +1,13 @@
+body {
+  background-color: crimson;
+}
 .calculadora {
   width: 200px;
   margin: 50px auto;
   padding: 10px;
-  border: 1px solid #ccc;
+  border: 1px solid #8856ff;
   border-radius: 5px;
+  background-color: #8856ff;
 }
 
 .pantalla {
@@ -11,27 +15,32 @@
   margin-bottom: 10px;
 }
 
-.botones {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-gap: 5px;
+.botones-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  background-color:#8856ff;
 }
 
 button {
-  width: 100%;
+  width: 45px;
   height: 40px;
-  background-color: #eee;
+  background-color: #3430a0;
   border: none;
   border-radius: 5px;
   font-size: 16px;
+  margin: 5px 0;
 }
 
 .igual {
-  grid-column: 1 / span 4;
+  width: 100%;
   background-color: #007bff;
   color: #fff;
+  margin-top: 5px;
 }
 
 .operador {
   color: #007bff;
 }
+
