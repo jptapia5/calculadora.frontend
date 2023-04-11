@@ -1,5 +1,10 @@
 body {
   background-color: rgb(253, 67, 0);
+  background-image: url('https://thumbs.dreamstime.com/z/calculadora-un-fondo-39034340.jpg');
+  background-size: cover;
+  background-position: center top;
+  background-attachment: fixed;
+
 }
 .calculadora {
   width: 200px;
