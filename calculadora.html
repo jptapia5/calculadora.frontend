@@ -11,33 +11,35 @@
     <link rel="stylesheet" href="calculadora.css"/>
     <title>calculadora</title>
 </head>
-<body>
-      <div class="calculadora">
-
-        <div class="pantalla">0</div>
-
-        <button id="c" class="btn">C</button>
-        <button id="borrar" class="btn">←</button>
-        <button class="btn">/</button>
-        <button class="btn">*</button>
-        <button class="btn">7</button>
-        <button class="btn">8</button>
-        <button class="btn">9</button>
-        <button class="btn">-</button>
-        <button class="btn">4</button>
-        <button class="btn">5</button>
-        <button class="btn">6</button>
-        <button class="btn">+</button>
-        <button class="btn">1</button>
-        <button class="btn">2</button>
-        <button class="btn">3</button>
-        <button id="igual" class="btn">=</button>
-        <button id="cero" class="btn">0</button>
-        <button class="btn">.</button>
-    </div>
-
-    
-   
-    
-</body>
-</html>
+   <body>
+        <div class="calculadora">
+          <div class="pantalla">
+            <input type="text" id="resultado" disabled>
+          </div>
+          <div class="botones">
+            <button class="operador" onclick="agregar('7')">7</button>
+            <button class="operador" onclick="agregar('8')">8</button>
+            <button class="operador" onclick="agregar('9')">9</button>
+            <button class="operador" onclick="operacion('+')">+</button>
+            <br>
+            <button class="operador" onclick="agregar('4')">4</button>
+            <button class="operador" onclick="agregar('5')">5</button>
+            <button class="operador" onclick="agregar('6')">6</button>
+            <button class="operador" onclick="operacion('-')">-</button>
+            <br>
+            <button class="operador" onclick="agregar('1')">1</button>
+            <button class="operador" onclick="agregar('2')">2</button>
+            <button class="operador" onclick="agregar('3')">3</button>
+            <button class="operador" onclick="operacion('*')">*</button>
+            <br>
+            <button class="operador" onclick="agregar('0')">0</button>
+            <button class="operador" onclick="agregar('.')">.</button>
+            <button class="operador" onclick="borrar()">C</button>
+            <button class="operador" onclick="operacion('/')">/</button>
+            <br>
+            <button class="igual" onclick="calcular()">=</button>
+          </div>
+        </div>
+        <script src="script.js"></script>
+      </body>
+    </html>
