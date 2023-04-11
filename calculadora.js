@@ -32,6 +32,11 @@ function calcular() {
   var potencia = calcularPotencia(num1, num2);
   var raizCuadrada1 = calcularRaizCuadrada(num1);
   var raizCuadrada2 = calcularRaizCuadrada(num2);
+  
+   if (num2 === 0) {
+    alert("Matematicamente, no se puede dividir por cero");
+    return;
+  }
 
   // Mostrar los resultados para el html
   document.getElementById("resultadoSuma").innerHTML = suma;
