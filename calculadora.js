@@ -47,3 +47,21 @@ function calcular() {
   document.getElementById("resultadoRaiz1").innerHTML = raizCuadrada1;
   document.getElementById("resultadoRaiz2").innerHTML = raizCuadrada2;
 }
+
+function openURL() {
+  var imagen = document.createElement("div");
+  imagen.classList.add("imagen");
+
+  var iframe = document.createElement("iframe");
+  iframe.src = "http://3.bp.blogspot.com/-upfn9ceEp1o/UIb8MDrA2uI/AAAAAAAAAIo/cE1qWSZUR7s/s640/2.10.JPG";
+  
+  imagen.appendChild(iframe);
+  
+  document.body.appendChild(imagen);
+  
+  imagen.onclick = function() {
+    imagen.style.display = "none";
+  }
+  
+  
+}
