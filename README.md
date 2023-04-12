@@ -1,7 +1,3 @@
-https://github.com/jptapia5/calculadora.frontend
+# JQuery
 
--Gonzalo Mercado López
--José Ignacio Gómez
--José Ponce Muñoz
--Simón Zelada Guerra
--Juan Pablo Tapia
+Calculadora con [JQuery](https://jquery.com).
