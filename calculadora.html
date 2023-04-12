@@ -1,49 +1,114 @@
 <!DOCTYPE html>
-<html lang="es">
+<html>
 <head>
+    <title>Calculadora Sprint</title>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js" integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="calculadora.js"></script>
     <link rel="stylesheet" href="calculadora.css"/>
-    <title>Calculadora básica</title>
+    <style>
+        button {
+            font-size: 16px;
+            width: 45px;
+            height: 45px;
+            margin: 2px;
+        }
+        #resultado {
+            font-size: 32px;
+            text-align: right;
+            width: 100%;
+            margin-bottom: 8px;
+            padding: 8px;
+            background-color: #060b06;
+            border: none;
+            color: white;
+        }
+        .boton-gris {
+            background-color: #d9d9d9;
+            color: black;
+        }
+        .boton-naranja {
+            background-color: #f0ad4e;
+            color: white;
+        }
+        .boton-rojo {
+            background-color: #d9534f;
+            color: white;
+        }
+        .boton-verde {
+            background-color: #5cb85c;
+            color: white;
+        }
+        .boton-gris:hover, .boton-naranja:hover, .boton-rojo:hover, .boton-verde:hover {
+            opacity: 0.8;
+        }
+        .container {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+        .columna {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 60px;
+        }
+        .fila {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            width: 100%;
+        }
+    </style>
 </head>
 <body>
-  <div class="calculadora">
-    <div class="pantalla">
-      <input type="text" id="resultado" disabled>
-    </div>
-    <div class="botones-container">
-      <button class="operador" onclick="agregar('7')">7</button>
-      <button class="operador" onclick="agregar('8')">8</button>
-      <button class="operador" onclick="agregar('9')">9</button>
-      <button class="operador" onclick="operacion('+')">+</button>
-      <br>
-      <button class="operador" onclick="agregar('4')">4</button>
-      <button class="operador" onclick="agregar('5')">5</button>
-      <button class="operador" onclick="agregar('6')">6</button>
-      <button class="operador" onclick="operacion('-')">-</button>
-      <br>
-      <button class="operador" onclick="agregar('1')">1</button>
-      <button class="operador" onclick="agregar('2')">2</button>
-      <button class="operador" onclick="agregar('3')">3</button>
-      <button class="operador" onclick="operacion('*')">*</button>
-      <br>
-      <button class="operador" onclick="agregar('0')">0</button>
-      <button class="operador" onclick="agregar('.')">.</button>
-      <button class="operador" onclick="borrar()">C</button>
-      <button class="operador" onclick="operacion('/')">/</button>
-      <br>
-      <button class="operador" onclick="operacion('^')">^</button>
-      <button class="operador" onclick="operacion('√')">√'</button>
-      <button class="operador" onclick="operacion('+/-')">+/-</button>
-      <button class="operador" onclick="openURL('apt')">apt</button>
-      <br>
-      <button class="igual" onclick="calcular()">=</button>
-    </div>
-  </div>
-</body>
-</html>
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="resultado" readonly>
+                        </div>
+                        <div class="botones">
+                            <div class="columna">
+                                <div class="fila">
+                                    <button class="btn boton-gris" onclick="agregarNumero('7')">7</button>
+                                    <button class="btn boton-gris" onclick="agregarNumero('8')">8</button>
+                                    <button class="btn boton-gris" onclick="agregarNumero('9')">9</button>
+                                    <button class="btn boton-naranja" onclick="agregarOperacion('/')">/</button>
+                                    <button class="btn boton-naranja" onclick="raiz()">√</button>
+                                </div>
+                                <div class="fila">
+                                    <button class="btn boton-gris" onclick="agregarNumero('4')">4</button>
+                                    <button class="btn boton-gris" onclick="agregarNumero('5')">5</button>
+                                    <button class="btn boton-gris" onclick="agregarNumero('6')">6</button>
+                                    <button class="btn boton-naranja" onclick="agregarOperacion('*')">*</button>
+                                    <button class="btn boton-naranja" onclick="potencia()">I²</button>
+                                </div>    
+                                    <div class="fila">
+                                    <button class="btn boton-gris" onclick="agregarNumero('1')">1</button>
+                                    <button class="btn boton-gris" onclick="agregarNumero('2')">2</button>
+                                    <button class="btn boton-gris" onclick="agregarNumero('3')">3</button>
+                                    <button class="btn boton-naranja" onclick="agregarOperacion('+')">+</button>
+                                    <button class="btn boton-naranja" onclick="calcularPorcentaje()">%</button>
+                                  </div>
+                                  <div class="fila">
+                                      <button class="btn boton-gris" onclick="agregarNumero('0')">0</button>
+                                      <button class="btn boton-gris" onclick="agregarDecimal()">.</button>
+                                      <button class="btn boton-rojo" onclick="borrar()">C</button>
+                                      <button class="btn boton-naranja" onclick="agregarOperacion('-')">-</button>
+                                      <button class="btn boton-verde" onclick="calcular()">=</button>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+             </div>
+          </div>
+       </div>
+ </body>
+ </html>
