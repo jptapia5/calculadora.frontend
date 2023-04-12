@@ -65,3 +65,18 @@ function openURL() {
   
   
 }
+
+function agregar(numero) {
+  if (nuevaOperacion) {
+    document.getElementById("resultado").value = numero;
+    nuevaOperacion = false;
+  } else {
+    document.getElementById("resultado").value += numero;
+  }
+}
+
+function operacion(op) {
+  if (operacionActual === "") {
+    resultadoAnterior = document.getElementById("resultado").value;
+  }
+}
