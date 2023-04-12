@@ -1,3 +1,7 @@
+$(document).ready(()=>{
+
+});
+
 // Función para validar números
 function isNumber(n) {
   return !isNaN(parseFloat(n)) && isFinite(n);
@@ -67,12 +71,8 @@ function openURL() {
 }
 
 function agregar(numero) {
-  if (nuevaOperacion) {
-    document.getElementById("resultado").value = numero;
-    nuevaOperacion = false;
-  } else {
-    document.getElementById("resultado").value += numero;
-  }
+  document.getElementById("resultado").value += numero;
+  $(".op").prop("disabled", false);
 }
 
 function operacion(op) {
