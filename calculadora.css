@@ -1,15 +1,97 @@
 body {
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+  background-image: url('https://img.freepik.com/foto-gratis/textura-papel-cuadrados_23-2147786544.jpg?w=1800&t=st=1681268842~exp=1681269442~hmac=9675363a9ad685cb7b4074036e8b692a1d9d39b6ec813a57c46357e3951b7711');
+  background-size: cover;
+  background-repeat: repeat;
+}
+.calculadora {
+  width: 500px;
+  height: 600px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.3);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
 }
 
-p {
-  font-size: xx-small;
+@media only screen and (min-width: 480px) {
+  .calculadora {
+    max-width: 800px;
+  }
 }
 
-.miClase {
-  background-color: aliceblue;
+@media only screen and (min-width: 801px) {
+  .calculadora {
+    max-width: 1920px;
+  }
 }
 
-#miId {
-  font-family: 'Courier New', Courier, monospace;
+.resultado {
+  font-size: 2em;
+  padding: 10px;
+  margin-bottom: 20px;
+  text-align: right;
+}
+
+.fila {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+button {
+  font-size: 16px;
+  width: 45px;
+  height: 45px;
+  margin: 2px;
+}
+#resultado {
+  font-size: 32px;
+  text-align: right;
+  width: 100%;
+  margin-bottom: 8px;
+  padding: 8px;
+  background-color: #060b06;
+  border: none;
+  color: white;
+}
+.boton-gris {
+  background-color: #d9d9d9;
+  color: black;
+}
+.boton-naranja {
+  background-color: #f0ad4e;
+  color: white;
+}
+.boton-rojo {
+  background-color: #d9534f;
+  color: white;
+}
+.boton-verde {
+  background-color: #5cb85c;
+  color: white;
+}
+.boton-gris:hover, .boton-naranja:hover, .boton-rojo:hover, .boton-verde:hover {
+  opacity: 0.8;
+}
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+.columna {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 60px;
+}
+.fila {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
 }

@@ -1,77 +1,114 @@
-var tresultado = document.getElementById("resultado");
+let numero1 = '';
+let numero2 = '';
+let operacion = '';
+let resultado = '';
 
-/* codigo de botones numéricos */
-var botonesNum = document.getElementsByClassName("btn btn-dark");
-
-for (let i = 0; i < botonesNum.length; i++) {
-  const element = botonesNum[i];
-  element.addEventListener("click", function () {
-    putNumber(element.innerText);
-  });
+function agregarNumero(numero) {
+    if (operacion === '') {
+        numero1 += numero;
+    } else {
+        numero2 += numero;
+    }
+    actualizarResultado();
 }
 
-function putNumber(valor) {  
-  tresultado.value += valor;
+function agregarOperacion(op) {
+    operacion = op;
+    actualizarResultado();
 }
 
-
-/* var botonesAccion = document.getElementsByClassName('btn btn-secondary');*/
-var botonesOperacion = document.getElementsByClassName("btn btn-primary");
-
-for (let i = 0; i < botonesOperacion.length; i++) {
-  const element = botonesOperacion[i];
-  element.addEventListener("click", function () {
-    putOperador(element.innerText);
-  });
+function borrar() {
+    numero1 = '';
+    numero2 = '';
+    operacion = '';
+    resultado = '';
+    actualizarResultado();
 }
 
-function putOperador(op) {
-  if(op=="^"){
-    op="**";
-  }if (op=="√") {
-    op="Math.sqrt("
-  }if(op=="-/+"){
-    op="-"
-  }
-
-  tresultado.value += op;
+function actualizarResultado() {
+    let res = '';
+    if (numero1 !== '') {
+        res += numero1;
+    }
+    if (operacion !== '') {
+        res += ' ' + operacion + ' ';
+    }
+    if (numero2 !== '') {
+        res += numero2;
+    }
+    document.getElementById('resultado').value = res;
 }
 
-/* codigo del botón limpiar */
-var bLimpiar = document.getElementById("bclean");
-bLimpiar.addEventListener("click", function () {
-  clean();
-});
-
-function clean() {
-  tresultado.value = "";
-}
-
-/* codigo del botón igual */
-var bIgual = document.getElementById("bequal");
-bIgual.addEventListener("click", function () {
-  igual();
-});
-
-function igual() {
-  tresultado.value = eval(tresultado.value);
-  //division por 0
-  if ((tresultado.value == "Infinity")) {
-    tresultado.value = "error";
-  }
-}
-
-/*validar ingreso solo de numeros
-function valideKey(evt){    
-  
-  var code = (evt.which) ? evt.which : evt.keyCode;
-  
-  if(code==8) { // backspace.
+function validarNumeros() {
+    if (numero1 === '' || numero2 === '') {
+        alert('Por favor ingresa ambos números');
+        return false;
+    } else if (isNaN(numero1) || isNaN(numero2)) {
+        alert('Por favor ingresa números válidos');
+        return false;
+    }
     return true;
-  } else if(code>=48 && code<=57) { // is a number.
-    return true;
-  } else{ // other keys.
-    return false;
-  }
-}*/
+}
 
+function calcular() {
+    if (!validarNumeros()) {
+        return;
+    }
+
+    let res = '';
+    if (operacion === '+') {
+        res = parseFloat(numero1) + parseFloat(numero2);
+    } else if (operacion === '-') {
+        res = parseFloat(numero1) - parseFloat(numero2);
+    } else if (operacion === '*') {
+        res = parseFloat(numero1) * parseFloat(numero2);
+    } else if (operacion === '/') {
+        if (numero2 === '0') {
+            alert('No se puede dividir por cero');
+            return;
+        }
+        res = parseFloat(numero1) / parseFloat(numero2);
+    }
+    resultado = res;
+    numero1 = res;
+    numero2 = '';
+    operacion = '';
+    actualizarResultado();
+}
+function calcularPorcentaje() {
+    let pantalla = document.getElementById("pantalla");
+    let resultado = eval(pantalla.value);
+    pantalla.value = resultado/100;
+  }
+function raiz() {
+    if (numero1 === '') {
+        alert('Por favor ingresa un número');
+        return;
+    }
+    let res = Math.sqrt(parseFloat(numero1));
+    resultado = res;
+    numero1 = res;
+    actualizarResultado();
+}
+
+function potencia() {
+    if (numero1 === '') {
+        alert('Por favor ingresa un número');
+        return;
+    }
+    let res = Math.pow(parseFloat(numero1), 2);
+    resultado = res;
+    numero1 = res;
+    actualizarResultado();
+}
+
+function negativo() {
+    if (numero1 === '') {
+        alert('Por favor ingresa un número');
+        return;
+    }
+    let res = parseFloat(numero1) * -1;
+    resultado = res;
+    numero1 = res;
+    actualizarResultado();
+}
