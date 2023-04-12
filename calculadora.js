@@ -1,82 +1,114 @@
-// Función para validar números
-function isNumber(n) {
-  return !isNaN(parseFloat(n)) && isFinite(n);
+let numero1 = '';
+let numero2 = '';
+let operacion = '';
+let resultado = '';
+
+function agregarNumero(numero) {
+    if (operacion === '') {
+        numero1 += numero;
+    } else {
+        numero2 += numero;
+    }
+    actualizarResultado();
 }
 
-// Función para calcular la raíz cuadrada
-function calcularRaizCuadrada(numero) {
-  return Math.sqrt(numero);
+function agregarOperacion(op) {
+    operacion = op;
+    actualizarResultado();
 }
 
-// Función para calcular el resultado
+function borrar() {
+    numero1 = '';
+    numero2 = '';
+    operacion = '';
+    resultado = '';
+    actualizarResultado();
+}
+
+function actualizarResultado() {
+    let res = '';
+    if (numero1 !== '') {
+        res += numero1;
+    }
+    if (operacion !== '') {
+        res += ' ' + operacion + ' ';
+    }
+    if (numero2 !== '') {
+        res += numero2;
+    }
+    document.getElementById('resultado').value = res;
+}
+
+function validarNumeros() {
+    if (numero1 === '' || numero2 === '') {
+        alert('Por favor ingresa ambos números');
+        return false;
+    } else if (isNaN(numero1) || isNaN(numero2)) {
+        alert('Por favor ingresa números válidos');
+        return false;
+    }
+    return true;
+}
+
 function calcular() {
-  // Obtener los valores de entrada
-  var num1 = document.getElementById("num1").value;
-  var num2 = document.getElementById("num2").value;
+    if (!validarNumeros()) {
+        return;
+    }
 
-  // Validar los valores de entrada
-  if (!isNumber(num1) || !isNumber(num2)) {
-    alert("Por favor, ingrese solo numeros validos");
-    return;
+    let res = '';
+    if (operacion === '+') {
+        res = parseFloat(numero1) + parseFloat(numero2);
+    } else if (operacion === '-') {
+        res = parseFloat(numero1) - parseFloat(numero2);
+    } else if (operacion === '*') {
+        res = parseFloat(numero1) * parseFloat(numero2);
+    } else if (operacion === '/') {
+        if (numero2 === '0') {
+            alert('No se puede dividir por cero');
+            return;
+        }
+        res = parseFloat(numero1) / parseFloat(numero2);
+    }
+    resultado = res;
+    numero1 = res;
+    numero2 = '';
+    operacion = '';
+    actualizarResultado();
+}
+function calcularPorcentaje() {
+    let pantalla = document.getElementById("pantalla");
+    let resultado = eval(pantalla.value);
+    pantalla.value = resultado/100;
   }
-
-  // conversion entrada a números
-  num1 = parseFloat(num1);
-  num2 = parseFloat(num2);
-
-  // Operaciones
-  var suma = num1 + num2;
-  var resta = num1 - num2;
-  var multiplicacion = num1 * num2;
-  var division = num1 / num2;
-  var potencia = calcularPotencia(num1, num2);
-  var raizCuadrada1 = calcularRaizCuadrada(num1);
-  var raizCuadrada2 = calcularRaizCuadrada(num2);
-  
-   if (num2 === 0) {
-    alert("Matematicamente, no se puede dividir por cero");
-    return;
-  }
-
-  // Mostrar los resultados para el html
-  document.getElementById("resultadoSuma").innerHTML = suma;
-  document.getElementById("resultadoResta").innerHTML = resta;
-  document.getElementById("resultadoMultiplicacion").innerHTML = multiplicacion;
-  document.getElementById("resultadoDivision").innerHTML = division;
-  document.getElementById("resultadoPotencia").innerHTML = potencia;
-  document.getElementById("resultadoRaiz1").innerHTML = raizCuadrada1;
-  document.getElementById("resultadoRaiz2").innerHTML = raizCuadrada2;
+function raiz() {
+    if (numero1 === '') {
+        alert('Por favor ingresa un número');
+        return;
+    }
+    let res = Math.sqrt(parseFloat(numero1));
+    resultado = res;
+    numero1 = res;
+    actualizarResultado();
 }
 
-function openURL() {
-  var imagen = document.createElement("div");
-  imagen.classList.add("imagen");
-
-  var iframe = document.createElement("iframe");
-  iframe.src = "http://3.bp.blogspot.com/-upfn9ceEp1o/UIb8MDrA2uI/AAAAAAAAAIo/cE1qWSZUR7s/s640/2.10.JPG";
-  
-  imagen.appendChild(iframe);
-  
-  document.body.appendChild(imagen);
-  
-  imagen.onclick = function() {
-    imagen.style.display = "none";
-  }
-  
-  
+function potencia() {
+    if (numero1 === '') {
+        alert('Por favor ingresa un número');
+        return;
+    }
+    let res = Math.pow(parseFloat(numero1), 2);
+    resultado = res;
+    numero1 = res;
+    actualizarResultado();
 }
 
-function agregar(numero) {
-  if (nuevaOperacion) {
-    document.getElementById("resultado").value = numero;
-    nuevaOperacion = false;
-  } else {
-    document.getElementById("resultado").value += numero;
-  }
-}
-
-function operacion(op) {
-  if (operacionActual === "") {
-    resultadoAnterior = document.getElementById("resultado").value;
-  }
+function negativo() {
+    if (numero1 === '') {
+        alert('Por favor ingresa un número');
+        return;
+    }
+    let res = parseFloat(numero1) * -1;
+    resultado = res;
+    numero1 = res;
+    actualizarResultado();
 }
