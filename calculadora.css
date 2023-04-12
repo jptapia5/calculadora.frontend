@@ -1,71 +1,43 @@
 body {
-  background-color: rgb(254, 254, 254);
-  background-image: url('https://img.freepik.com/foto-gratis/textura-papel-cuadrados_23-2147786544.jpg?w=1800&t=st=1681258028~exp=1681258628~hmac=d8e9e5e9081fa288db442735ddda2796059ba4abc5219be83f421746e422c3a1');
+  background-image: url('https://img.freepik.com/foto-gratis/textura-papel-cuadrados_23-2147786544.jpg?w=1800&t=st=1681268842~exp=1681269442~hmac=9675363a9ad685cb7b4074036e8b692a1d9d39b6ec813a57c46357e3951b7711');
   background-size: cover;
-  background-position: center top;
-  background-attachment: fixed;
-
+  background-repeat: repeat;
 }
 .calculadora {
-  width: 200px;
-  margin: 50px auto;
-  padding: 10px;
-  border: 1px solid #8856ff;
-  border-radius: 5px;
-  background-color: #8856ff;
-}
-
-.pantalla {
-  width: 100%;
-  margin-bottom: 10px;
-}
-
-.botones-container {
+  width: 500px;
+  height: 600px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.3);
+  margin: 0 auto;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  background-color:#8856ff;
+
 }
 
-button {
-  width: 45px;
-  height: 40px;
-  background-color: #3430a0;
-  border: none;
-  border-radius: 5px;
-  font-size: 16px;
-  margin: 5px 0;
+@media only screen and (min-width: 480px) {
+  .calculadora {
+    max-width: 800px;
+  }
 }
 
-.igual {
-  width: 100%;
-  background-color: #007bff;
-  color: #fff;
-  margin-top: 5px;
+@media only screen and (min-width: 801px) {
+  .calculadora {
+    max-width: 1920px;
+  }
 }
 
-.operador {
-  color: #007bff;
+.resultado {
+  font-size: 2em;
+  padding: 10px;
+  margin-bottom: 20px;
+  text-align: right;
 }
 
-.imagen {
-  position: fixed;
-  z-index: 1;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0,0,0,0.7);
-  display: auto;
-}
-
-.imagen iframe {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  height: 342px;
-  aspect-ratio: 640 / 342;
-  width: 640px;
+.fila {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
 }
